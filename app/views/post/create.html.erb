@@ -1,0 +1,16 @@
+<div id="post-form-container">
+<h2>Σύνταξη αναφοράς</h2>
+<form accept-charset="UTF-8" action="/report" id="post-form" method="post">
+  <video id="camera"></video>
+  <button id="snap"><i class="fa fa-camera"></i></button>
+  <input name="photo" id="post_photo" type="hidden">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+  <input name="lat" id="post_lat" type="hidden">
+  <input name="lng" id="post_lng" type="hidden">
+  <label for="post_title" class="label">Τίτλος ανάρτησης</label>
+  <input name="title" type="text" id="post_title" class="input">
+  <label for="post_description" class="label">Περιγραφή</label>
+  <textarea name="description" rows="8" id="post_description" class="input textarea"></textarea>
+  <input type="submit" class="submit" value="Υποβολή">
+</form>
+</div>

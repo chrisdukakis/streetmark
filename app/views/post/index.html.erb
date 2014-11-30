@@ -1,0 +1,76 @@
+<div id="post">
+  <span id="post-rating"><%=@post.rating%></span>
+  <form id="rate-form" method="post" action="/highlight/<%=@post._id%>" style="display:none;">
+    <input name="authenticity_token" type="hidden" id="token" value="<%= form_authenticity_token %>">
+  </form>
+  <button id="highlight-post" data-id="<%@post._id%>"
+<%
+if user_signed_in? 
+  if @post.voters.include? current_user._id
+%>
+ class="inactive"
+<%
+  end
+else
+%>
+ class="inactive"
+<%
+end
+%>
+  ><i class="fa fa-exclamation-triangle"></i></button>
+  <a href="/users/<%=@post.user._id%>" class="post-user">
+    <img src="<%=@post.user.avatar%>" class="post-user-avatar">
+    <span class="post-user-name">
+      <%="#{@post.user.first_name} #{@post.user.last_name}"%>
+    </span>
+  </a>
+  <h2 id="post-title"><%=@post.title%></h2>
+  <img id="post-photo" src="<%=@post.photo.url%>">
+  <p id="post-description"><%=@post.description%>
+    <br><br>
+    <a href="http://maps.googleapis.com/maps/api/staticmap?center=<%=@post.loc[0]%>,<%=@post.loc[1]%>&size=600x300&zoom=13&markers=label:A|<%=@post.loc[0]%>, <%=@post.loc[1]%>" id="view-in-maps" target="_blank">Χάρτης</a>
+  </p>
+  <div id="comments">
+    <h3 id="comments-h3">Συζήτηση <span id="comments-count">(<%=@post.comments.length%>)</span></h3>
+    <%
+    if user_signed_in?
+    %>
+    <form id="post-comment" accept-charset="UTF-8" action="/posts/<%=@post._id%>" method="post">
+      <input name="utf8" type="hidden" value="&#x2713;">
+      <input name="authenticity_token" type="hidden" id="token" value="<%= form_authenticity_token %>">
+      <img id="post-comment-avatar" src="<%=current_user.avatar.url%>">
+      <textarea name="text" id="comment-textarea" placeholder="Προτείνετε μια λύση" rows="4"></textarea>
+      <input name="submit" type="submit" value="Υποβολή" id="comment-submit">
+    </form>
+    <%
+    end
+    %>
+    <div id="comment-list">
+      <%
+      @post.comments.each do |comment|
+      %>
+      <div class="comment">
+        <a href="/users/<%=comment.user._id%>">
+          <img class="comment-avatar" src="<%=comment.user.avatar.url%>">
+          <span class="comment-user"><%="#{comment.user.first_name} #{comment.user.last_name}"%></span>
+        </a>
+        <p class="comment-text"><%=comment.text%></p>
+      </div>
+      <%
+      end
+      %>
+    </div>
+  </div>
+</div>
+<%
+if @comment_posted
+%>
+  <p class="alert">Το σχόλιο καταχωρήθηκε</p>
+<%
+end
+if @highlighted
+%>
+  <p class="alert">Επισημάνθηκε ως σημαντικό</p>
+<%
+end
+%>

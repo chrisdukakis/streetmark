@@ -1,0 +1,33 @@
+<div id="important">
+<a href="/report" id="post-button"><i class="fa fa-pencil"></i></a>
+<%
+if @posts.empty?
+%>
+<div class="no-results">Δε βρέθηκαν αναρτήσεις</div>
+<%
+else
+  @posts.each do |post|
+%>
+<div class="post">
+<a href="/users/<%=post.user._id%>" class="post-user">
+  <img src="<%=post.user.avatar%>" class="post-user-avatar">
+  <span class="post-user-name">
+    <%="#{post.user.first_name} #{post.user.last_name}"%>
+  </span>
+</a>
+<span class="post-time"><%=post.created_at%></span>
+<a href="/posts/<%=post.id%>" class="post-link">
+  <div class="post-title"><%=post.title%></div>
+  <img src="<%=post.photo.url%>" class="post-img">
+</a>
+</div>
+<%
+  end
+  if @posted
+%>
+  <p class="alert">Η αναφορά καταχωρήθηκε</p>
+<%
+  end
+end
+%>
+</div>

@@ -1,0 +1,581 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ */
+
+body {
+  margin: 0px;
+  font-family: Roboto;
+  background: #f5f5f5;
+}
+a {
+  text-decoration: none;
+}
+button {
+  padding: 0px;
+  margin: 0px;
+  background: transparent;
+  border: none;
+  padding: 14px 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+#header {
+  width: 100%;
+  height: 50px;
+  background: #333;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  color: #fff;
+}
+#header button {
+  color: rgba(255,255,255,0.9);
+}
+#header button:hover {
+  color: #fff;
+}
+#nav-button {
+  position: absolute;
+  top: 0px;
+  left: 62px;
+  color: rgba(255,255,255,0.9);
+}
+#logo {
+  height: 26px;
+  opacity: 0.9;
+  position: absolute;
+  left: 30px;
+  top: 12px;
+}
+#nav {
+  opacity: 1;
+  width: 230px;
+  height: 100%;
+  padding-top: 70px;
+  padding-left: 30px;
+  padding-right: 30px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  -webkit-transform: translateX(0px);
+  background: #fff;
+  border-right: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+  z-index: 1;
+  -webkit-transition: -webkit-transform 0.2s ease, opacity 0.4s ease;
+}
+.hidden-nav {
+  opacity: 0 !important;
+  -webkit-transform: translateX(-200px) !important;
+}
+.nav-link {
+  display: block;
+  font-size: 16px;
+  color: rgba(0,0,0,0.7);
+  padding: 10px 0px;
+}
+.nav-link:hover {
+  color: rgba(0,0,0,0.9);
+}
+.nav-link .fa {
+  width: 35px;
+}
+.nav-link .fa-newspaper-o {
+  color: #2196F3;
+}
+.nav-link .fa-map-marker {
+  font-size: 25px;
+  color: #FFCA28;
+}
+.nav-link .fa-check-circle {
+  color: #4CAF50;
+}
+.nav-link .fa-exclamation-triangle {
+  color: #F44336;
+}
+.nav-link .fa-user {
+  color: rgba(0,0,0,0.6);
+}
+.nav-link .fa-cog {
+  color: rgba(0,0,0,0.6);
+}
+#nav-personal-links {
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.1)
+}
+#tools {
+  position: absolute;
+  right: 30px;
+  top: 0px;
+}
+.search-button {
+  color: rgba(255,255,255,0.9);
+}
+#content {
+  position: relative;
+  top: 50px;
+}
+.container {
+  width: 90%;
+  margin: auto;
+}
+#intro {
+  font-size: 22px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  color: rgba(0,0,0,0.9);
+  text-align: center;
+}
+#intro-auth {
+  text-align: center;
+}
+#home-sign-in {
+  background: #2196F3;
+  padding: 8px 20px 10px 20px;
+  border-radius: 3px;
+  color: #fff;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  font-size: 20px;
+  margin-right: 15px;
+}
+#home-sign-up {
+  border: 2px solid #2196F3;
+  color: #2196F3;
+  padding: 7px 18px 9px 18px;
+  border-radius: 3px;
+  font-size: 20px;
+  margin-left: 15px;
+}
+
+.form-container {
+  width: 400px;
+  margin: auto;
+  position: relative;
+  top: 20px;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 24px;
+  color: rgba(0,0,0,0.9);
+}
+
+form {
+  width: 410px;
+  margin: auto;
+  position: relative;
+
+}
+.label {
+  display: block;
+  color: rgba(0,0,0,0.6);
+  margin-bottom: 4px;
+}
+.checkbox-label {
+  color: rgba(0,0,0,0.6);
+}
+.input {
+  width: 398px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.2);
+  font-size: 18px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.input:focus {
+  box-shadow: 0px 0px 5px #2196F3;
+}
+.file_input {
+  font-size: 14px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: none;
+  width: 398px;
+}
+.submit {
+  border: none;
+  cursor: pointer;
+  background: #2196F3;
+  padding: 8px 20px;
+  border-radius: 3px;
+  color: #fff;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  font-size: 18px;
+  position: absolute;
+  right: 0px;
+}
+#additional-links {
+  margin-top: 35px;
+}
+#additional-links a {
+  display: block;
+  padding: 4px 0px;
+  color: #2196F3;
+}
+#additional-links a:hover{
+  text-decoration: underline;
+}
+
+#post-button {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  z-index: 1000;
+  right: 30px;
+  bottom: 20px;
+  background: #80DEEA;
+  color: rgba(0,0,0,0.6);
+  border-radius: 35px;
+  font-size: 28px;
+  padding: 16px 17px 24px 23px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  -webkit-animation: opacity 0.7s linear 1;
+}
+
+.no-results {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 20px;
+  color: rgba(0,0,0,0.8);
+}
+.no-results-link {
+  color: #2196F3;
+  font-size: 22px;
+}
+.no-results-link:hover {
+  text-decoration: underline;
+}
+
+.notice, .alert {
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 10px;
+  border-radius: 3px;
+  left: 30px;
+  -webkit-animation: notice 7s linear 1;
+  opacity: 0;
+  z-index: 1000;
+  -webkit-transform: translateY(10px);
+}
+
+@-webkit-keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes notice {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+  }
+  10% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+  }
+  90% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+}
+textarea {
+  font-family: Roboto;
+}
+#post-form-container {
+  width: 610px;
+  margin: auto;
+  position: relative;
+  top: 20px;
+}
+#post-form {
+  width: 610px;
+  padding-bottom: 80px;
+}
+#post-form .input, #post-form textarea {
+  width: 598px;
+}
+#post_description {
+  font-size: 16px;
+}
+
+.post {
+  width: 500px;
+  position: relative;
+  padding: 10px 8px;
+  margin-right: 3%;
+  background: #fff;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  overflow: hidden;
+  border-radius: 2px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.post-link {
+  color: rgba(0,0,0,0.9);
+}
+.post-img {
+  max-width: 500px;
+  max-height: 500px;
+  display: block;
+}
+.post-title {
+  font-size: 19px;
+  padding: 10px 0px 20px 0px;
+}
+.post-user {
+  font-size: 16px;
+  color: #2196F3;
+  padding: 5px 0px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.post-user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.post-user-name {
+  position: relative;
+  top: -15px;
+  left: 10px;
+}
+.post-time {
+  font-size: 12px;
+  position: absolute;
+  right: 10px;
+  top: 28px;
+  color: rgba(0,0,0,0.5);
+}
+
+#post {
+  width: 600px;
+  margin: auto;
+  position: relative;
+  margin: 30px auto 50px auto;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  padding: 10px 8px 10px 8px;
+}
+#post-photo {
+  max-width: 600px;
+  max-height: 600px;
+}
+#post-description {
+  padding: 0px 10px;
+  color: rgba(0,0,0,0.8);
+  line-height: 160%;
+  font-size: 16px;
+}
+#post-title {
+  font-size: 22px;
+  padding: 0px 10px 0px 10px;
+}
+#highlight-post {
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  background: #F44336;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 14px 8px 14px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-left: 0px;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+#post-rating {
+  position: absolute;
+  right: 59px;
+  top: 10px;
+  display: inline-block;
+  font-size: 18px;
+  color: rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-right: 0px;
+  padding: 10px 10px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+#view-in-maps {
+  color: #2196F3;
+  font-size: 16px;
+}
+#comments {
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid rgba(0,0,0,0.1); 
+}
+#comments h2 { 
+}
+#post-comment {
+  width: 580px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+#post-comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.1); 
+  position: absolute;
+  top: 0px;
+}
+#comment-textarea {
+  width: 498px;
+  margin-left: 10px;
+  position: relative;
+  padding: 5px 10px; 
+  left: 50px;
+  border: 1px solid rgba(0,0,0,0.2);
+  color: rgba(0,0,0,0.8);
+  font-size: 14px;
+  border-radius: 2px;
+}
+#comments-h3 {
+  font-weight: normal;
+  font-size: 20px;
+  padding: 0px;
+  margin: 10px 0px 25px 10px;
+  color: rgba(0,0,0,0.8);
+}
+#comments-count {
+  color: rgba(0,0,0,0.4);
+}
+#comment-submit {
+  background: #2196F3;
+  border: 0px;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  padding: 8px 20px;
+  font-size: 14px;
+  float: right;
+  color: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+#comment-list {
+  margin-top: 5px;
+}
+.comment {
+  position: relative;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding: 10px 0px 0px 0px;
+}
+.comment:first-of-type {
+  border-top: 0px;
+}
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.1);
+  margin-left: 10px;
+}
+.comment-user {
+  position: relative;
+  top: -15px;
+  left: 10px;
+  font-size: 16px;
+  color: #2196F3;
+}
+.comment-text {
+  width: 500px;
+  position: relative;
+  left: 68px;
+  top: -15px;
+  margin: 10px 0px 0px 0px;
+  color: rgba(0,0,0,0.8);
+  font-size: 14px;
+}
+.inactive {
+  opacity: 0.4;
+  cursor: default;
+}
+
+#profile {
+  position: relative;
+  top: 20px;
+}
+#profile-header {
+  width: 508px;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+#profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+#profile-name {
+  font-size: 26px;
+  padding: 10px 0px;
+  margin: 0px;
+}
+#posts-count {
+  width: 508px;
+  margin: auto;
+  font-size: 20px;
+  color: rgba(0,0,0,0.6);
+  padding-bottom: 20px;
+}
+#important {
+  position: relative;
+  top: 20px;
+}
+#video {
+  position: relative;
+  top: 10px;
+}
+
+#snap {
+  display: block;
+  margin: auto;
+  position: relative;
+  top: -40px;
+  font-size: 30px;
+  color: #fff;
+  background: #E91E63;
+  padding: 16px 18px;
+  border-radius: 34px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+}

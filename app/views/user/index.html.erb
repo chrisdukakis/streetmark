@@ -1,0 +1,48 @@
+<div id="profile">
+<%
+if @user
+%>
+  <header id="profile-header">
+    <img src="<%=@user.avatar.url%>" id="profile-avatar">
+    <h2 id="profile-name"><%="#{@user.first_name} #{@user.last_name}"%></h2>
+  </header>
+  <div id="posts-count">Αναφορές (<%=@user.posts.length%>)</div>
+<%
+if @user.posts.empty?
+%>
+<div class="no-results">Δε βρέθηκαν αναρτήσεις</div>
+<%
+else
+  @user.posts.each do |post|
+%>
+<div class="post">
+<a href="/users/<%=post.user._id%>" class="post-user">
+  <img src="<%=post.user.avatar%>" class="post-user-avatar">
+  <span class="post-user-name">
+    <%="#{post.user.first_name} #{post.user.last_name}"%>
+  </span>
+</a>
+<span class="post-time"><%=post.created_at%></span>
+<a href="/posts/<%=post.id%>" class="post-link">
+  <div class="post-title"><%=post.title%></div>
+  <img src="<%=post.photo.url%>" class="post-img">
+</a>
+</div>
+<%
+  end
+end
+else
+%>
+<div class="no-results">
+  <a class="no-results-link" href="/sign_in">Σύνδεση</a> ή <a class="no-results-link" href="/sign_up">Εγγραφή</a></div>
+<%
+end
+%>
+</div>
+<%
+if user_signed_in?
+%>
+<a href="/report" id="post-button"><i class="fa fa-pencil"></i></a>
+<%
+end
+%>

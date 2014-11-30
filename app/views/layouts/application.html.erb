@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hackathess</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header id="header">
+<img src="/assets/logo.png" id="logo">
+<button id="nav-button"><i class="fa fa-bars"></i></button>
+<div id="tools">
+  <button id="more-button"><i class="fa fa-ellipsis-v"></i></button>
+  <div id="search"></div>
+  <div id="more"></div>
+</div>
+</header>
+<nav id="nav" class="hidden-nav">
+  <div id="nav-content">
+    <a href="/home" class="nav-link"><i class="fa fa-newspaper-o"></i>Ενημερώσεις</a>
+    <a href="/map" class="nav-link"><i class="fa fa-map-marker"></i>Χάρτης</a>
+    <a href="/important" class="nav-link"><i class="fa fa-exclamation-triangle"></i>Σημαντικά</a>
+    <a href="/resolved" class="nav-link"><i class="fa fa-check-circle"></i>Επιλύθηκαν</a>
+  </div>
+<%
+if user_signed_in? 
+%>
+  <div id="nav-personal-links">
+    <a href="/users/<%=current_user._id%>" class="nav-link"><i class="fa fa-user"></i>Το προφίλ μου</a>
+    <a href="/settings" class="nav-link"><i class="fa fa-cog"></i>Ρυθμίσεις</a>
+    <a href="/sign_out" class="nav-link"><i class="fa fa-sign-out"></i>Αποσύνδεση</a>
+  </div>
+<%
+end
+%>
+</nav>
+<%
+if notice
+%>
+<p class="notice"><%= notice %></p>
+<%
+end
+if alert
+%>
+<p class="alert"><%= alert %></p>
+<%
+end
+%>
+<div id="content">
+<%= yield %>
+</div>
+</body>
+</html>

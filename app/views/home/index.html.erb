@@ -1,0 +1,51 @@
+<%
+if !user_signed_in?
+%>
+<div id="intro" class="container">
+  <p>
+    Επισημάνετε προβλήματα που εντοπίζετε στην πόλη. Αναδείξτε τα σημαντικότερα και προτείνετε λύσεις.
+  </p>
+  <div id="intro-auth">
+    <a href="/sign_in" id="home-sign-in">Σύνδεση</a> ή
+    <a href="/sign_up" id="home-sign-up">Εγγραφή</a>
+  </div>
+</div>
+<%
+end
+%>
+</p>
+<%
+if user_signed_in?
+%>
+<a href="/report" id="post-button"><i class="fa fa-pencil"></i></a>
+<%
+end
+if @posts.empty?
+%>
+<div class="no-results">Δε βρέθηκαν αναρτήσεις</div>
+<%
+else
+  @posts.each do |post|
+%>
+<div class="post">
+<a href="/users/<%=post.user._id%>" class="post-user">
+  <img src="<%=post.user.avatar%>" class="post-user-avatar">
+  <span class="post-user-name">
+    <%="#{post.user.first_name} #{post.user.last_name}"%>
+  </span>
+</a>
+<span class="post-time"><%=post.created_at%></span>
+<a href="/posts/<%=post.id%>" class="post-link">
+  <div class="post-title"><%=post.title%></div>
+  <img src="<%=post.photo.url%>" class="post-img">
+</a>
+</div>
+<%
+  end
+  if @posted
+%>
+  <p class="alert">Η αναφορά καταχωρήθηκε</p>
+<%
+  end
+end
+%>

@@ -1,0 +1,25 @@
+<div class="form-container">
+<h2>Εγγραφή</h2>
+<form accept-charset="UTF-8" action="/sign_up" enctype="multipart/form-data" class="new_user" id="new_user" method="post">
+  <input name="utf8" type="hidden" value="&#x2713;">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+  <label for="user_first_name" class="label">Όνομα</label>
+  <input id="user_first_name" name="user[first_name]" type="text" class="input" autofocus="autofocus">
+  <label for="user_last_name" class="label">Επώνυμο</label>
+  <input id="user_last_name" name="user[last_name]" type="text" class="input">
+  <label for="user_email" class="label">Email</label>
+  <input id="user_email" name="user[email]" type="email" class="input">
+  <label for="user_password" class="label">Κωδικός</label>
+  <input autocomplete="off" id="user_password" name="user[password]" type="password" class="input">
+  <label for="user_password_confirmation" class="label">Επιβεβαίωση Κωδικού</label>
+  <input autocomplete="off" id="user_password_confirmation" name="user[password_confirmation]" type="password" class="input">
+  <label for="post_photo" class="label">Εικόνα προφίλ</label>
+  <input name="user[avatar]" id="post_photo" class="file_input" type="file">
+  <input name="user[lat]" type="hidden" id="register-lat">
+  <input name="user[lng]" type="hidden" id="register-lng">
+  <input name="commit" type="submit" value="Εγγραφή" class="submit">
+</form>
+<div id="additional-links">
+  <a href="/sign_in">Σύνδεση</a>
+</div>
+</div>
